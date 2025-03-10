@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if request.path.startswith('/modificar') %}
+<h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Modificar Alumno</h2>
+<form method="POST" class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+    {{ form.hidden_tag() }}
+    <label>Nombre:</label>
+    {{ form.nombre(class_='border rounded-lg p-2 w-full') }}
+    <label>Apellido:</label>
+    {{ form.apaterno(class_='border rounded-lg p-2 w-full') }}
+    <label>Email:</label>
+    {{ form.email(class_='border rounded-lg p-2 w-full') }}
+    <button type="submit" class="mt-4 bg-green-600 text-white px-4 py-2 rounded-lg">Guardar</button>
+    <a href="{{ url_for('index') }}" class="ml-2 bg-gray-600 text-white px-4 py-2 rounded-lg">Cancelar</a>
+</form>
+{% endif %}
+{% endblock %}

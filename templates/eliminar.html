@@ -1,0 +1,16 @@
+{% if request.path.startswith('/eliminar') %}
+<h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Eliminar Alumno</h2>
+<div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+    <p><strong>Nombre:</strong> {{ form.nombre.data }}</p>
+    <p><strong>Apellido:</strong> {{ form.apaterno.data }}</p>
+    <p><strong>Email:</strong> {{ form.email.data }}</p>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-lg">Eliminar</button>
+        <a href="{{ url_for('index') }}" class="ml-2 bg-gray-600 text-white px-4 py-2 rounded-lg">Cancelar</a>
+    </form>
+</div>
+{% endif %}
+
+{% endblock %}
+{% endblock %}

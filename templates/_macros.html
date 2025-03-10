@@ -1,17 +1,19 @@
-{% macro datos(name, placeholder, type="text") %}
-<p><input name="{{ name }}" type="{{ type }}" placeholder="{{ placeholder }}"></p>
-{% endmacro %}
+{%macro datos(name,placeholder,type="text")%}
 
-{% macro camposNuevos(field) %}
-<div class="mb-3">
-    {{ field.label(class="form-label fw-semibold") }}
-    {{ field(class="form-control form-control-sm rounded-3 is-invalid" if field.errors else "form-control form-control-sm rounded-3") }}
-    {% if field.errors %}
-    <div class="invalid-feedback">
-        {% for error in field.errors %}
-        {{ error }}
-        {% endfor %}
-    </div>
-    {% endif %}
-</div>
-{% endmacro %}
+<P><input name="{{name}}" type="{{type}}" placeholder="{{placeholder}}"></P>
+
+{%endmacro%}
+
+{%macro campoNuevo(field)%}
+
+<td>{{field.label}}</td>
+<dd>{{field(** kwargs) | safe}}</dd>
+
+{%if field.errors%}
+    <ul>
+        {%for error in field.errors%}
+        <li style="color: red">{{error}}</li>
+        {%endfor%}
+    </ul>
+{%endif%}
+{%endmacro%}

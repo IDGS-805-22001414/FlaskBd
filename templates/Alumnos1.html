@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+{% import "_macros.html" as macros %}
+
+<div class="py-32 relative overflow-x-auto sm:rounded-lg">
+    <form novalidate class="max-w-md mx-auto" action="/Alumno1" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+
+        <div>
+            {{ macros.campoNuevo(form.nombre, class="block w-full p-2 border rounded bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500") }}
+        </div>
+        <div>
+            {{ macros.campoNuevo(form.apaterno, class="block w-full p-2 border rounded bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500") }}
+        </div>
+        <div>
+            {{ macros.campoNuevo(form.email, class="block w-full p-2 border rounded bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500") }}
+        </div>
+        
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Agregar</button>
+    </form>
+</div>
+
+{% endblock %}
